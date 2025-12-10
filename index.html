@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TECNOSOLUCIONESIG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="bg-white text-gray-900 antialiased">
+<!-- NAVBAR -->
+<header class="w-full sticky top-0 z-50 bg-[#48196b]/10 backdrop-blur-lg shadow-sm border-b border-[#48196b]/20 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-3 md:px-6 py-2 md:py-4 flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-2 md:gap-4">
+      <img src="img/TECNO_SIN FONDO.png" 
+           class="w-10 h-10 md:w-14 md:h-14 rounded-lg"
+           alt="Logo">
+
+      <h1 class="font-extrabold text-[15px] md:text-xl tracking-wide text-[#48196b] leading-tight max-w-[180px] md:max-w-none whitespace-normal break-words">
+        TECNOSOLUCIONESIG
+      </h1>
+    </div>
+
+    <!-- BOTÓN MOBILE -->
+    <button onclick="toggleMenu()" 
+            class="block md:hidden text-[#48196b] text-3xl leading-none pl-3">
+      ☰
+    </button>
+
+    <!-- MENÚ ESCRITORIO -->
+    <div class="hidden md:flex items-center">
+      <ul class="flex gap-10 text-sm font-semibold border-r border-[#48196b]/20 pr-6">
+        <li><a href="#inicio" class="hover:text-[#48196b] hover:border-b-2 border-[#48196b] pb-1 transition">Inicio</a></li>
+        <li><a href="#productos" class="hover:text-[#48196b] hover:border-b-2 border-[#48196b] pb-1 transition">Productos</a></li>
+        <li><a href="#sobre-nosotros" class="hover:text-[#48196b] hover:border-b-2 border-[#48196b] pb-1 transition">Sobre Nosotros</a></li>
+        <li><a href="#servicios" class="hover:text-[#48196b] hover:border-b-2 border-[#48196b] pb-1 transition">Servicios</a></li>
+        <li><a href="#contacto" class="hover:text-[#48196b] hover:border-b-2 border-[#48196b] pb-1 transition">Contacto</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2 pl-6">
+        <input 
+          id="searchInput"
+          type="text" 
+          placeholder="Buscar sección..." 
+          class="border border-[#48196b]/40 px-3 py-2 rounded-lg text-sm shadow-sm w-40 focus:border-[#48196b] focus:ring-2 focus:ring-[#48196b]/20 outline-none transition-all"
+        >
+        <button onclick="buscarSeccion()"
+          class="bg-gradient-to-r from-[#48196b] to-[#371254] text-white px-5 py-2 rounded-lg text-sm shadow-md hover:shadow-xl hover:scale-105 transition">
+          Buscar
+        </button>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- MENÚ MOBILE -->
+  <div id="mobileMenu" class="hidden px-4 pb-3">
+
+    <ul class="flex flex-col gap-4 text-sm font-semibold mb-4 mt-2">
+      <li><a onclick="toggleMenu()" href="#inicio" class="text-[#371254]">Inicio</a></li>
+      <li><a onclick="toggleMenu()" href="#productos" class="text-[#371254]">Productos</a></li>
+      <li><a onclick="toggleMenu()" href="#sobre-nosotros" class="text-[#371254]">Sobre Nosotros</a></li>
+      <li><a onclick="toggleMenu()" href="#servicios" class="text-[#371254]">Servicios</a></li>
+      <li><a onclick="toggleMenu()" href="#contacto" class="text-[#371254]">Contacto</a></li>
+    </ul>
+
+    <div class="flex gap-2">
+      <input 
+        id="searchInputMobile"
+        type="text" 
+        placeholder="Buscar sección..."
+        class="border border-[#48196b]/40 px-3 py-2 rounded-lg text-sm shadow-sm w-full outline-none"
+      >
+      <button onclick="buscarSeccionMobile()"
+        class="bg-gradient-to-r from-[#48196b] to-[#371254] text-white px-4 py-2 rounded-lg text-sm shadow-md">
+        Ir
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<script>
+  function toggleMenu(){
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+  }
+
+  function buscarSeccion() {
+    const valor = document.getElementById("searchInput").value.toLowerCase();
+    searchRedirect(valor);
+  }
+
+  function buscarSeccionMobile() {
+    const valor = document.getElementById("searchInputMobile").value.toLowerCase();
+    searchRedirect(valor);
+  }
+
+  function searchRedirect(valor){
+    if(valor.includes("inicio")){
+      location.hash = "#inicio";
+    } 
+    else if(valor.includes("sobre")){
+      location.hash = "#sobre-nosotros";
+    }
+    else if(valor.includes("productos")){
+      location.hash = "#productos";
+    }
+    else if(valor.includes("servicio")){
+      location.hash = "#servicios";
+    } 
+    else if(valor.includes("contact")){
+      location.hash = "#contacto";
+    } 
+    else {
+      alert("No encontramos esa sección. Intenta: inicio, productos, sobre nosotros, servicios, contacto.");
+    }
+  }
+</script>
+
+
+<!-- HERO -->
+<section id="inicio" class="relative py-10 md:py-20 overflow-hidden">
+
+  <!-- Fondo elegante con textura y glow -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#48196B]/25 via-white to-[#00BFFF]/10"></div>
+  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt.png')] opacity-10"></div>
+
+  <div class="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-[#48196B]/25 blur-[120px]"></div>
+  <div class="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-[#00BFFF]/20 blur-[100px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+    <!-- Texto Hero -->
+    <div class="animate__animated animate__fadeInLeft">
+
+      <!-- Badges -->
+      <div class="flex gap-3 mb-6 animate-pulse-slow">
+
+        <span class="text-xs px-4 py-1 rounded-full border border-[#48196B]/30 
+                     bg-white shadow-sm shadow-[#48196B]/10 
+                     text-[#48196B] font-semibold tracking-wide animate-glow">
+          Soporte remoto certificado
+        </span>
+
+        <span class="text-xs px-4 py-1 rounded-full border border-[#00BFFF]/30 
+                     bg-white shadow-sm shadow-[#00BFFF]/10 
+                     text-[#00BFFF] font-semibold tracking-wide animate-glow">
+          Licencias verificadas
+        </span>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-black leading-tight mb-4 text-[#48196B] drop-shadow-sm">
+        Soluciones digitales confiables para tu empresa
+      </h2>
+
+      <p class="text-gray-600 text-lg md:text-xl mb-8 leading-relaxed">
+        Instala Windows, Office, Antivirus y software profesional activado con soporte remoto seguro y respaldo completo.
+      </p>
+
+      <div class="flex gap-4 flex-wrap">
+
+        <!-- CTA 1 -->
+        <a href="#productos"
+           class="px-8 py-3 bg-[#00BFFF] text-white rounded-lg font-semibold 
+                  shadow-lg shadow-[#00BFFF]/30 hover:shadow-xl hover:shadow-[#00BFFF]/40 
+                  hover:scale-105 transition">
+          Adquiris Licencia
+        </a>
+
+        <!-- CTA 2 -->
+        <a href="#contacto"
+           class="px-7 py-3 border border-[#48196B] text-[#48196B] rounded-lg font-semibold
+                  hover:bg-[#48196B] hover:text-white hover:shadow-md 
+                  hover:scale-105 transition">
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Micro beneficios -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs mt-10 text-gray-600 font-semibold">
+
+        <div class="flex gap-2 items-center">
+          <span class="w-2 h-2 bg-[#00BFFF] rounded-full"></span>
+          Entrega digital inmediata
+        </div>
+
+        <div class="flex gap-2 items-center">
+          <span class="w-2 h-2 bg-[#00BFFF] rounded-full"></span>
+          Activación verificada
+        </div>
+
+        <div class="flex gap-2 items-center">
+          <span class="w-2 h-2 bg-[#00BFFF] rounded-full"></span>
+          Soporte incluido
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Imagen Hero con carrusel -->
+    <div class="flex justify-center animate__animated animate__fadeInUp">
+
+      <div class="relative w-full max-w-md overflow-hidden rounded-xl shadow-xl border border-[#48196B]/20">
+
+        <!-- CONTENEDOR SLIDES -->
+        <div id="carouselHero" class="w-full flex transition-all duration-700">
+
+          <!-- Slide 1 -->
+          <div class="min-w-full flex">
+            <img src="img/banner1.png" class="w-full object-cover">
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="min-w-full flex">
+            <img src="img/banner2.png" class="w-full object-cover">
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="min-w-full flex">
+            <img src="img/banner3.png" class="w-full object-cover">
+          </div>
+        </div>
+
+        <!-- Glow efecto especial -->
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 
+                    w-52 h-10 bg-[#48196B]/20 blur-xl rounded-full"></div>
+
+        <!-- Puntos indicadores -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <div class="w-2 h-2 rounded-full bg-[#48196B] opacity-70" id="dot0"></div>
+          <div class="w-2 h-2 rounded-full bg-[#48196B]/40" id="dot1"></div>
+          <div class="w-2 h-2 rounded-full bg-[#48196B]/40" id="dot2"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<script>
+  let heroIndex = 0;
+  const heroCarousel = document.getElementById("carouselHero");
+  const heroDots = [
+    document.getElementById("dot0"),
+    document.getElementById("dot1"),
+    document.getElementById("dot2"),
+  ];
+
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % 3;
+    heroCarousel.style.transform = `translateX(-${heroIndex * 100}%)`;
+
+    heroDots.forEach((d, i) => {
+      d.classList.remove("bg-[#48196B]");
+      d.classList.remove("opacity-70");
+      d.classList.add("bg-[#48196B]/40");
+    });
+
+    heroDots[heroIndex].classList.remove("bg-[#48196B]/40");
+    heroDots[heroIndex].classList.add("bg-[#48196B]");
+    heroDots[heroIndex].classList.add("opacity-70");
+
+  }, 3500);
+</script>
+
+<!-- SECCIÓN PRODUCTOS -->
+<section id="productos" class="w-full py-24 bg-gradient-to-br from-[#48196B] via-[#0d71d3] to-[white]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-center text-4xl md:text-5xl font-extrabold text-white mb-8 drop-shadow-lg">
+      Nuestros Productos
+    </h2>
+
+    <!-- 🔍 BARRA DE BÚSQUEDA -->
+    <div class="flex justify-center mb-6 relative">
+      <div class="flex w-full max-w-lg items-center bg-white/10 rounded-xl overflow-hidden border border-white/30">
+        <input 
+          id="productSearch"
+          type="text"
+          placeholder="Buscar producto..."
+          autocomplete="off"
+          class="flex-1 py-3 px-5 bg-transparent text-white placeholder-white/70 outline-none"
+        >
+        <button id="searchBtn" type="button" class="px-4 py-3 bg-[#00BFFF] hover:bg-[#0098cc] transition flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-width="2" 
+              d="M21 21l-4.35-4.35m2.1-5.4A7.5 7.5 0 1110.5 3a7.5 7.5 0 018.25 8.25z" />
+          </svg>
+        </button>
+      </div>
+      <!-- CONTENEDOR DE SUGERENCIAS -->
+      <ul id="autocompleteList" class="absolute top-full left-0 w-full max-w-lg bg-white rounded-b-xl text-black shadow-lg z-50 hidden"></ul>
+    </div>
+
+    <!-- MENSAJE DE NO ENCONTRADOS -->
+    <p id="noResults" class="text-center text-white/80 text-lg max-w-xl mx-auto mb-6 hidden">
+      No se encontraron productos
+    </p>
+
+    <!-- GRID DE PRODUCTOS -->
+    <div id="productsGrid" class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- PROD 1 -->
+<div id="prod1" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/win11pro.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Windows 11 Pro</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$50.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia digital oficial</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Activación remota segura</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Compatible con Windows 10/11</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía de funcionamiento</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod1">Agregar al carrito</button>
+</div>
+
+<!-- PROD 2 -->
+<div id="prod2" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/office2024.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Office 2024 LTSC Profesional Plus</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$129.900</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$60.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Word, Excel, PowerPoint, Outlook y más</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia permanente</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Activación remota segura</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía funcional</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod2">Agregar al carrito</button>
+</div>
+
+<!-- PROD 3 -->
+<div id="prod3" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/365.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Office 365 Personal</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$120.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$90.900</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Word, Excel, PowerPoint, Outlook</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia anual</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> 1 usuario y 1 PC</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Soporte remoto y garantía</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod3">Agregar al carrito</button>
+</div>
+
+<!-- PROD 4 -->
+<div id="prod4" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/mcfetp.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">McAfee Total Protection 1 Equipo</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$15.000mil</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Protección antivirus completa</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Firewall y control de web</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Actualizaciones automáticas</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía funcional</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod4">Agregar al carrito</button>
+</div>
+
+<!-- PROD 5 -->
+<div id="prod5" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/mcfep5.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">McAfee Total Protection 5 PC</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$65.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Cobertura para 5 dispositivos</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Antivirus y seguridad web</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Actualizaciones automáticas</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Soporte y garantía</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod5">Agregar al carrito</button>
+</div>
+
+<!-- PROD 6 -->
+<div id="prod6" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/mcfetp10.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">McAfee Total Protection 10 PC</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$195.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$90.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Cobertura para 10 dispositivos</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Protección antivirus avanzada</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Actualizaciones automáticas</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Soporte técnico y garantía</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod6">Agregar al carrito</button>
+</div>
+
+<!-- PROD 7 -->
+<div id="prod7" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/win10pro.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Windows 10 Pro</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$50.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia digital oficial</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Activación remota segura</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Compatible con Windows 10</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía de funcionamiento</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod7">Agregar al carrito</button>
+</div>
+
+<!-- PROD 8 -->
+<div id="prod8" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/office2019.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Office 2019 ProPlus</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$45.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Word, Excel, PowerPoint y Outlook</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia perpetua</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> 1 usuario y 1 PC</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía de activación</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod8">Agregar al carrito</button>
+</div>
+
+<!-- PROD 9 -->
+<div id="prod9" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/office2021.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Office 2021 ProPlus</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$95.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$45.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Word, Excel, PowerPoint y Outlook</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia para 1 usuario</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Instalación remota segura</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Garantía de activación</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod9">Agregar al carrito</button>
+</div>
+
+<!-- PROD 10 -->
+<div id="prod10" class="product-card bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 animate-float-soft">
+  <img src="img/autodesk.png" class="w-full h-52 object-cover rounded-xl mb-4">
+  <h3 class="text-2xl font-bold text-[#48196B] leading-tight">Autodesk</h3>
+  <div class="mt-2 mb-4">
+    <span class="text-sm text-gray-400 line-through">$199.000</span>
+    <span class="text-xl font-extrabold text-[#00BFFF] ml-2">$70.000</span>
+  </div>
+  <ul class="text-sm text-gray-600 space-y-2 mb-5">
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Software de diseño 2D/3D profesional</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Licencia oficial digital</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Compatible con AutoCAD, Revit, Maya y más</li>
+    <li class="flex items-center gap-2"><span class="text-[#00BFFF] font-bold">✔</span> Soporte y garantía funcional</li>
+  </ul>
+  <button class="addCartBtn bg-[#48196B] hover:bg-[#34104f] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold" data-id="prod10">Agregar al carrito</button>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes floatSoft {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-float-soft { animation: floatSoft 4s ease-in-out infinite; }
+  .products-grid:hover .product-card { filter: brightness(0.7); transform: scale(1.0) !important; }
+  .product-card:hover { filter: brightness(1) !important; transform: scale(1.08) !important; box-shadow: 0px 15px 35px rgba(0,0,0,0.45) !important; z-index: 10; }
+  .highlight { background-color: yellow; color: black; padding: 0 2px; border-radius: 2px; }
+  #autocompleteList li { padding: 8px 12px; cursor: pointer; }
+  #autocompleteList li:hover { background-color: #00BFFF; color: white; }
+</style>
+
+<script>
+const searchInput = document.getElementById("productSearch");
+const searchBtn = document.getElementById("searchBtn");
+const cards = document.querySelectorAll(".product-card");
+const noResults = document.getElementById("noResults");
+const autocompleteList = document.getElementById("autocompleteList");
+
+function filterProducts() {
+  const term = searchInput.value.toLowerCase().trim();
+  let found = false;
+  let suggestions = [];
+
+  cards.forEach(card => {
+    const h3 = card.querySelector("h3");
+    const title = h3.textContent.toLowerCase();
+
+    if (title.includes(term) && term !== "") {
+      card.style.display = "";
+      found = true;
+      suggestions.push(h3.textContent);
+
+      const regex = new RegExp(`(${term})`, "gi");
+      h3.innerHTML = h3.textContent.replace(regex, `<span class="highlight">$1</span>`);
+    } else if(term === "") {
+      card.style.display = "";
+      h3.innerHTML = h3.textContent;
+      found = true;
+    } else {
+      card.style.display = "none";
+      h3.innerHTML = h3.textContent;
+    }
+  });
+
+  noResults.style.display = found ? "none" : "block";
+
+  autocompleteList.innerHTML = "";
+  if(term !== "" && suggestions.length > 0){
+    suggestions.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      li.addEventListener("click", () => {
+        searchInput.value = item;
+        filterProducts();
+        autocompleteList.classList.add("hidden");
+      });
+      autocompleteList.appendChild(li);
+    });
+    autocompleteList.classList.remove("hidden");
+  } else {
+    autocompleteList.classList.add("hidden");
+  }
+}
+
+searchInput.addEventListener("input", filterProducts);
+searchBtn.addEventListener("click", filterProducts);
+document.addEventListener("click", (e) => {
+  if(!autocompleteList.contains(e.target) && e.target !== searchInput){
+    autocompleteList.classList.add("hidden");
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+<!-- SECCIÓN SERVICIOS -->
+<!-- SECCIÓN SERVICIOS ANIMADA -->
+<section id="servicios" class="py-20 bg-gradient-to-br from-[#000000] via-[#48196B] to-[white]">
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-white mb-4 animate-fade-in">Nuestros Servicios</h2>
+      <p class="text-gray-400 text-lg animate-fade-in animate-delay-200">
+        Soluciones completas para tus necesidades tecnológicas y de software.
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Servicio 1 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:rotate-12">
+          <!-- Ícono Soporte Remoto -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6M12 12v4m-1 4h2a2 2 0 002-2v-2H9v2a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Soporte Remoto</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Asistencia inmediata para instalar, activar y resolver problemas de software desde cualquier lugar.
+        </p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:-rotate-12">
+          <!-- Ícono Instalación -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 014-4h10a4 4 0 014 4v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v7" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Instalación Segura</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Instalación profesional de Windows, Office, antivirus y más, garantizando funcionamiento seguro.
+        </p>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:scale-110">
+          <!-- Ícono Garantía -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Garantía de Licencias</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Todas nuestras licencias son verificadas y cuentan con garantía de funcionamiento y soporte.
+        </p>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:rotate-6">
+          <!-- Ícono Asesoría -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M12 14v6" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Asesoría Personalizada</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Te ayudamos a elegir el software y licencias que más se adapten a tus necesidades.
+        </p>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:scale-125">
+          <!-- Ícono Actualizaciones -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M4 20v-6h6M20 4v6h-6" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Actualizaciones</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Mantén tus programas al día con nuestras actualizaciones seguras y rápidas.
+        </p>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="bg-[#1E1E1E] p-8 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-blue-500/50 group">
+        <div class="w-24 h-24 mb-6 mx-auto text-[#00BFFF] transition-transform duration-500 group-hover:-rotate-6">
+          <!-- Ícono Seguridad -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v10m0-10h4a2 2 0 012 2v6a2 2 0 01-2 2h-4" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-[#00BFFF] mb-3 text-center group-hover:text-white transition-colors duration-300">Seguridad Informática</h3>
+        <p class="text-gray-400 text-center text-sm group-hover:text-gray-200 transition-colors duration-300">
+          Protege tus equipos y datos con soluciones antivirus y seguridad integral.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMACIONES CON TAILWIND -->
+<style>
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+
+
+
+
+<!-- SECCIÓN SOBRE NOSOTROS ANIMADA -->
+<section id="sobre-nosotros" class="relative py-24 bg-gradient-to-r from-[#48196B] via-[#FFFFFF] to-[#00BFFF] overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    <!-- Título -->
+    <div class="text-center mb-20">
+      <h2 class="text-5xl font-extrabold mb-4 text-black animate-fade-down">Sobre Nosotros</h2>
+      <p class="text-lg text-black-200 animate-fade-up animate-delay-200">
+        Somos un equipo especializado en soluciones tecnológicas y software confiable, brindando soporte, licencias y asesoría personalizada.
+      </p>
+    </div>
+
+    <!-- Contenido -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Imagen -->
+      <div class="animate-fade-left relative group">
+        <img src="img/TECNO_SIN FONDO.png" alt="Nuestro equipo" class="w-full rounded-3xl shadow-2xl object-cover border-4 border-white transform transition duration-500 group-hover:scale-105 group-hover:rotate-1">
+      </div>
+
+      <!-- Texto -->
+      <div class="space-y-10">
+        <!-- Misión -->
+        <div class="bg-white p-8 rounded-3xl shadow-2xl hover:shadow-[#00BFFF]/50 transition duration-500 transform hover:-translate-y-2">
+          <h3 class="text-3xl font-bold mb-3 text-[#48196B]">Nuestra Misión</h3>
+          <p class="text-gray-800 text-lg">
+            Ofrecer productos de software verificados, soporte remoto y asesoría personalizada para que tus equipos funcionen de manera segura y eficiente.
+          </p>
+        </div>
+        <!-- Visión -->
+        <div class="bg-white p-8 rounded-3xl shadow-2xl hover:shadow-[#00BFFF]/50 transition duration-500 transform hover:-translate-y-2">
+          <h3 class="text-3xl font-bold mb-3 text-[#48196B]">Nuestra Visión</h3>
+          <p class="text-gray-800 text-lg">
+            Ser referentes en soluciones tecnológicas confiables en toda Colombia, combinando seguridad, calidad y atención cercana al cliente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fondo decorativo animado -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-pulse-slow delay-500"></div>
+    <div class="absolute top-1/2 -right-20 w-72 h-72 bg-[#00BFFF]/30 rounded-full blur-2xl animate-spin-slow"></div>
+  </div>
+</section>
+
+<!-- ANIMACIONES CON TAILWIND -->
+<style>
+  /* Fade in y slide animations */
+  .animate-fade-down { opacity: 0; transform: translateY(-20px); animation: fadeDown 1s forwards; }
+  .animate-fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 1s forwards; }
+  .animate-fade-left { opacity: 0; transform: translateX(-20px); animation: fadeLeft 1s forwards; }
+
+  .animate-delay-200 { animation-delay: 0.2s; }
+
+  @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeLeft { to { opacity: 1; transform: translateX(0); } }
+
+  /* Fondo animado */
+  .animate-pulse-slow { animation: pulse 6s infinite ease-in-out alternate; }
+  .animate-spin-slow { animation: spin 40s linear infinite; }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.5; }
+    100% { transform: scale(0.95); opacity: 0.3; }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+
+
+<!-- SECCIÓN CONTACTO ANIMADA -->
+<section id="contacto" class="relative py-24 bg-gradient-to-br from-[#f0f0f0] to-[#e5e5e5] overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-[#48196B] mb-3 animate-fade-down">Contáctanos</h2>
+      <p class="text-gray-700 text-lg max-w-2xl mx-auto animate-fade-up animate-delay-200">
+        ¿Tienes alguna pregunta o necesitas soporte? Escríbenos y te responderemos a la brevedad.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Información de contacto -->
+      <div class="space-y-6 bg-white p-10 rounded-3xl shadow-2xl hover:shadow-[#00BFFF]/40 transition transform hover:-translate-y-2 animate-fade-left">
+        <div class="flex items-start gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#00BFFF] mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 12h18M3 19h18" />
+          </svg>
+          <div>
+            <h3 class="font-bold text-[#48196B]">Teléfono</h3>
+            <p class="text-gray-600 text-sm">+57 300 750 7305</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#00BFFF] mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0H4m4 0v8m0-8v-4m0 0h8m0 0h4m-4 0v8" />
+          </svg>
+          <div>
+            <h3 class="font-bold text-[#48196B]">Email</h3>
+            <p class="text-gray-600 text-sm">soporte@tusitio.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de contacto -->
+      <form id="contactForm" class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-[#00BFFF]/40 transition transform hover:-translate-y-2 space-y-6 animate-fade-right">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block font-semibold text-gray-700 mb-1">Nombre</label>
+            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00BFFF] transition shadow-sm hover:shadow-md" placeholder="Tu nombre" required>
+          </div>
+          <div>
+            <label for="email" class="block font-semibold text-gray-700 mb-1">Email</label>
+            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00BFFF] transition shadow-sm hover:shadow-md" placeholder="Tu email" required>
+          </div>
+        </div>
+        <div>
+          <label for="message" class="block font-semibold text-gray-700 mb-1">Mensaje</label>
+          <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00BFFF] transition shadow-sm hover:shadow-md" placeholder="Escribe tu mensaje" required></textarea>
+        </div>
+        <button type="submit" class="bg-[#48196B] hover:bg-[#34104f] text-white py-3 px-6 rounded-xl w-full font-semibold transition shadow-lg hover:shadow-2xl animate-pulse-button">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Fondo decorativo animado -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-72 h-72 bg-[#00BFFF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-40 -right-40 w-72 h-72 bg-[#48196B]/20 rounded-full blur-3xl animate-pulse-slow delay-500"></div>
+    <div class="absolute top-1/2 left-1/4 w-60 h-60 bg-[#00BFFF]/10 rounded-full blur-2xl animate-spin-slow"></div>
+  </div>
+</section>
+
+<!-- ANIMACIONES -->
+<style>
+  .animate-fade-down { opacity: 0; transform: translateY(-20px); animation: fadeDown 1s forwards; }
+  .animate-fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 1s forwards; }
+  .animate-fade-left { opacity: 0; transform: translateX(-20px); animation: fadeLeft 1s forwards; }
+  .animate-fade-right { opacity: 0; transform: translateX(20px); animation: fadeRight 1s forwards; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+
+  @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeLeft { to { opacity: 1; transform: translateX(0); } }
+  @keyframes fadeRight { to { opacity: 1; transform: translateX(0); } }
+
+  .animate-pulse-slow { animation: pulse 6s infinite ease-in-out alternate; }
+  .animate-spin-slow { animation: spin 40s linear infinite; }
+
+  @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.5; } 100% { transform: scale(0.95); opacity: 0.3; } }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  /* Botón animado */
+  .animate-pulse-button { animation: pulseBtn 2s infinite; }
+  @keyframes pulseBtn { 0%, 100% { box-shadow: 0 0 10px #00BFFF; } 50% { box-shadow: 0 0 20px #00BFFF; } }
+</style>
+
+<script>
+// Enviar formulario por WhatsApp
+const form = document.getElementById("contactForm");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if(!name || !email || !message){
+    alert("Por favor completa todos los campos");
+    return;
+  }
+
+  const phone = "573007507305";
+  let text = `¡Hola! Tengo un mensaje desde la web:\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+  form.reset();
+});
+</script>
+
+
+
+
+
+
+
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<button id="waBtn"
+  class="fixed bottom-5 right-5 bg-[#25D366] w-14 h-14 rounded-full flex 
+         items-center justify-center shadow-2xl hover:scale-110 transition-all z-[9999]">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 32 32">
+    <path d="M16.003 3.2c-6.627 0-12 5.372-12 12 0 2.116.553 4.176 1.605 
+    5.98L3.2 28.8l7.85-2.397A11.96 11.96 0 0016.003 27.2c6.628 0 
+    12-5.373 12-12 0-6.628-5.372-12-12-12zm7.02 17.254c-.297.835-1.722 
+    1.618-2.422 1.72-.619.094-1.403.13-4.741-1.009-3.978-1.397-6.51-6.06-6.71-6.34-.198-.28-1.603-2.136-1.603-4.073 
+    0-1.938 1.017-2.89 1.38-3.283.363-.393.8-.49 1.073-.49.272 
+    0 .536.003.772.014.25.012.582-.094.913.695.335.796 1.133 2.77 
+    1.234 2.973.1.204.166.443.03.723-.134.28-.201.443-.394.676-.194.232-.412.517-.589.696-.195.197-.398.412-.17.81.228.397 
+    1.01 1.66 2.166 2.688 1.487 1.322 2.734 1.743 3.132 1.94.398.197.631.165.865-.098.234-.263.998-1.165 1.264-1.565.266-.401.531-.335.913-.2.381.134 2.41 
+    1.136 2.82 1.34.41.203.683.303.783.47.1.165.1.96-.197 1.796z"/>
+  </svg>
+</button>
+
+
+<!-- CHAT EMERGENTE -->
+<div id="waChat"
+  class="hidden fixed bottom-24 right-5 w-80 bg-white shadow-xl rounded-xl border border-gray-200 z-[9999] animate__animated">
+
+  <!-- Header -->
+  <div class="bg-[#25D366] p-3 rounded-t-xl flex gap-3 items-center text-white">
+    
+    <img src="img/TECNO_SIN FONDO.png" 
+         class="w-10 h-10 rounded-full border border-white object-cover">
+
+    <div class="leading-tight">
+      <p class="font-bold text-sm">Soporte</p>
+      <p class="text-xs opacity-90">En línea ahora ✔️</p>
+    </div>
+
+    <button id="closeChat" class="ml-auto text-white font-bold text-lg leading-none">&times;</button>
+  </div>
+
+
+  <!-- Mensajes -->
+  <div id="chatMessages" class="px-3 py-3 text-sm flex flex-col gap-2 bg-gray-50 overflow-hidden max-h-56">
+
+    <!-- Mensaje simulado -->
+    <div class="self-start bg-white shadow-sm px-4 py-2 rounded-lg animate__animated animate__fadeIn">
+      ¡Hola! 👋 ¿En qué puedo ayudarte hoy?
+    </div>
+
+  </div>
+
+
+  <!-- Typing animation -->
+  <div id="typing" class="hidden px-4 pb-1 text-xs text-gray-400 animate__animated animate__fadeIn">
+    escribiendo...
+  </div>
+
+
+  <!-- Input -->
+  <div class="p-3 border-t flex gap-2">
+    <input id="waInput" 
+           type="text" 
+           placeholder="Escribe tu mensaje..."
+           class="flex-1 p-2 text-sm border rounded focus:outline-[#25D366]">
+    <button id="sendWA" 
+            class="bg-[#25D366] px-3 py-2 rounded text-white font-bold text-sm hover:bg-[#1eb255] transition">
+      ➤
+    </button>
+  </div>
+
+</div>
+
+<script>
+  const btn = document.getElementById("waBtn");
+  const chat = document.getElementById("waChat");
+  const closeChat = document.getElementById("closeChat");
+  const sendBtn = document.getElementById("sendWA");
+  const input = document.getElementById("waInput");
+  const typing = document.getElementById("typing");
+  const messages = document.getElementById("chatMessages");
+
+  const phone = "573007507305"; // cambia tu número real
+
+  btn.addEventListener("click", () => {
+    chat.classList.remove("hidden");
+    chat.classList.remove("animate__fadeOutDown");
+    chat.classList.add("animate__fadeInUp");
+
+    setTimeout(() => {
+      typing.classList.remove("hidden");
+    }, 600);
+
+    setTimeout(() => {
+      typing.classList.add("hidden");
+
+      let response = document.createElement("div");
+      response.innerHTML = "¿Quieres una licencia o renovación?";
+      response.className = "self-start bg-white shadow px-4 py-2 rounded-lg animate__animated animate__fadeIn";
+      messages.appendChild(response);
+
+    }, 2000);
+  });
+
+  closeChat.addEventListener("click", () => {
+    chat.classList.add("animate__fadeOutDown");
+    setTimeout(() => chat.classList.add("hidden"), 500);
+  });
+
+  sendBtn.addEventListener("click", () => {
+    let text = input.value.trim();
+    if (text === "") return;
+
+    // Agrego el mensaje en pantalla primero
+    let bubble = document.createElement("div");
+    bubble.className =
+      "self-end bg-[#dcf8c6] px-4 py-2 rounded-lg shadow animate__animated animate__fadeIn";
+    bubble.innerHTML = text;
+    messages.appendChild(bubble);
+
+    // scroll automático
+    messages.scrollTop = messages.scrollHeight;
+
+    // abrir WhatsApp
+    const encoded = encodeURIComponent(text);
+    window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank");
+
+    input.value = "";
+  });
+</script>
+
+<!-- CARRITO -->
+<button id="cartBtn" class="fixed top-16 right-4 bg-[#48196B] text-white p-3 rounded-full font-bold shadow-lg z-[10000]">
+  🛒<span id="cartCount" class="ml-1 text-sm">0</span>
+</button>
+
+<div id="cartPanel" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 transform translate-x-full transition-transform duration-300 z-[9999] flex flex-col">
+  <button onclick="closeCart()" class="self-end text-gray-500 text-2xl font-bold">&times;</button>
+  <h3 class="text-2xl font-bold text-[#48196B] mb-4">Tu carrito</h3>
+  <div id="cartItems" class="flex-1 overflow-y-auto space-y-2 mb-4"></div>
+  <div class="flex justify-between font-bold text-lg mb-4">
+    <span>Total:</span>
+    <span id="cartTotal">$0</span>
+  </div>
+  <button onclick="checkoutWhatsApp()" class="bg-[#00BFFF] hover:bg-[#0099cc] text-white py-2.5 px-4 rounded-lg w-full transition font-semibold">
+    Realizar pedido por WhatsApp
+  </button>
+</div>
+
+<script>
+// ---- DEFINICIÓN DE PRODUCTOS ----
+const productos = {
+  prod1: { title: "Windows 11 Pro", price: 50000 },
+  prod2: { title: "Office 2024 LTSC Profesional Plus", price: 60000 },
+  prod3: { title: "Office 365 Personal", price: 90900 },
+  prod4: { title: "McAfee Total Protection 1 equipo 5 años", price: 15000 },
+  prod5: { title: "McAfee Total Protection 5 PC", price: 65000 },
+  prod6: { title: "McAfee Total Protection 10 PC", price: 90000 },
+  prod7: { title: "Windows 10 Pro", price: 50000 },
+  prod8: { title: "Office 2019 ProPlus", price: 45000 },
+  prod9: { title: "Office 2021 ProPlus", price: 45000 },
+  prod10: { title: "Autodesk", price: 70000 },
+};
+
+
+// ---- CARRITO ----
+const cartBtn = document.getElementById("cartBtn");
+const cartPanel = document.getElementById("cartPanel");
+const cartItemsDiv = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+
+let cart = [];
+
+function addToCart(id){
+  const product = productos[id];
+  if(!product) return;
+
+  const existing = cart.find(item => item.id === id);
+  if(existing) existing.qty++;
+  else cart.push({ ...product, id, qty: 1 });
+
+  updateCartUI();
+}
+
+function removeFromCart(id){
+  cart = cart.filter(item => item.id !== id);
+  updateCartUI();
+}
+
+function updateCartUI(){
+  cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
+  cartItemsDiv.innerHTML = "";
+
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "flex justify-between items-center";
+
+    const titleQty = document.createElement("span");
+    titleQty.innerText = `${item.title} x${item.qty}`;
+
+    const rightDiv = document.createElement("div");
+    rightDiv.className = "flex gap-2 items-center";
+
+    const priceSpan = document.createElement("span");
+    priceSpan.innerText = `$${(item.price*item.qty).toLocaleString()}`;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.innerText = "×";
+    removeBtn.className = "text-red-500 font-bold hover:text-red-700";
+    removeBtn.addEventListener("click", ()=> removeFromCart(item.id));
+
+    rightDiv.appendChild(priceSpan);
+    rightDiv.appendChild(removeBtn);
+
+    div.appendChild(titleQty);
+    div.appendChild(rightDiv);
+
+    cartItemsDiv.appendChild(div);
+  });
+
+  cartTotal.innerText = `$${cart.reduce((a,b)=>a+b.price*b.qty,0).toLocaleString()}`;
+}
+
+// Abrir y cerrar panel
+cartBtn.addEventListener("click", ()=>cartPanel.style.transform="translateX(0)");
+function closeCart(){ cartPanel.style.transform="translateX(100%)"; }
+
+// WhatsApp
+function checkoutWhatsApp(){
+  if(cart.length===0){ alert("Tu carrito está vacío"); return; }
+  const phone = "573007507305";
+  let message = "¡Hola! Quiero realizar un pedido:\n";
+  cart.forEach(item => message += `- ${item.title} x${item.qty} = $${(item.price*item.qty).toLocaleString()}\n`);
+  message += `Total: $${cart.reduce((a,b)=>a+b.price*b.qty,0).toLocaleString()}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+// Botones de agregar al carrito
+document.querySelectorAll(".addCartBtn").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.stopPropagation();
+    const id = btn.dataset.id;
+    addToCart(id);
+    alert(`${productos[id].title} agregado al carrito`);
+  });
+});
+</script>
+
+
+<!-- FOOTER -->
+<footer class="w-full bg-[#48196B] mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6 text-white">
+    
+    <!-- Información de la empresa -->
+    <div class="text-center md:text-left space-y-2">
+      <strong class="text-white text-lg">TECNOSOLUCIONESIG</strong>
+      <p>Software con soporte remoto</p>
+      <p class="text-gray-300">WhatsApp: <a href="https://wa.me/573007507305" target="_blank" class="hover:text-[#00BFFF] transition">+57 300 750 7305</a></p>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="flex gap-6 md:ml-6">
+      <a href="https://www.facebook.com/tuempresa" target="_blank" class="text-white hover:text-[#00BFFF] transition transform hover:scale-110">
+        <!-- Ícono Facebook -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/tuempresa" target="_blank" class="text-white hover:text-[#00BFFF] transition transform hover:scale-110">
+        <!-- Ícono Instagram -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.338 3.608 1.312.974.974 1.25 2.242 1.312 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.338 2.633-1.312 3.608-.974.974-2.242 1.25-3.608 1.312-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.338-3.608-1.312-.974-.974-1.25-2.242-1.312-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.338-2.633 1.312-3.608C4.519 2.501 5.787 2.225 7.153 2.163 8.419 2.105 8.799 2.163 12 2.163zm0-2.163C8.735 0 8.332.013 7.052.072 5.775.131 4.642.37 3.678 1.334 2.715 2.298 2.476 3.431 2.417 4.708.013 8.332 0 8.735 0 12s.013 3.668.072 4.948c.059 1.277.298 2.41 1.262 3.374.964.964 2.097 1.203 3.374 1.262C8.332 23.987 8.735 24 12 24s3.668-.013 4.948-.072c1.277-.059 2.41-.298 3.374-1.262.964-.964 1.203-2.097 1.262-3.374.059-1.28.072-1.683.072-4.948s-.013-3.668-.072-4.948c-.059-1.277-.298-2.41-1.262-3.374-.964-.964-2.097-1.203-3.374-1.262C15.668.013 15.265 0 12 0z"/>
+          <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+          <circle cx="18.406" cy="5.594" r="1.44"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mini footer -->
+  <div class="w-full bg-[#34104f] py-4 text-center text-gray-300 text-sm mt-6">
+    Desarrollado por 
+    <a href="https://ideokode-page.onrender.com/" target="_blank" class="text-[#00BFFF] font-semibold hover:underline transition">IDEOKODE</a>
+  </div>
+</footer>
+
+
+
+
+
+
+
+  
+</body>
+</html>
